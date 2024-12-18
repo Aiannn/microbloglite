@@ -79,6 +79,7 @@ function logout () {
             // to be logged-in in order to have access.
             // In the API docs, these endpoints display a lock icon.
             Authorization: `Bearer ${loginData.token}`,
+            // Authorization: `Bearer ${JSON.parse(localStorage.getItem("login-data")).token}`,
         },
     };
 
@@ -91,6 +92,31 @@ function logout () {
             // error with the fetch request above.
 
             window.localStorage.removeItem("login-data");  // remove login data from LocalStorage
-            window.location.assign("/");  // redirect back to landing page (index.html)
+            window.location.assign("index.html");  // redirect back to landing page (index.html)
         });
 }
+
+// Event delegation. This approach works even if the #logout button
+// is dynamically added to the DOM later. 
+const logoutButton = document.querySelector("#logout");
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("click", function(event) {
+        if (event.target && event.target.id === "logout") {
+            event.preventDefault()
+            logout()
+        }
+    })
+    // logoutButton.onclick = function (event) {
+    //     // Prevent the form from refreshing the page,
+    //     // as it will do by default when the Submit event is triggered:
+    //     event.preventDefault();
+    
+    //     // We can use loginForm.username (for example) to access
+    //     // the input element in the form which has the ID of "username".
+    
+    //     // Disables the button after the form has been submitted already:
+    
+    //     // Time to actually process the login using the function from auth.js!
+    //     logout();
+    // };
+})

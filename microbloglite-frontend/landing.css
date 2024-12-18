@@ -1,1 +1,14 @@
 /* Landing Page CSS */
+.login-container {
+    max-width: 400px;
+    /* Set a maximum width for the container */
+    margin: 80px auto;
+    /* Center the container */
+    padding: 30px;
+    /* Padding around the form */
+    background-color: #ffffff;
+    /* White background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow */
+    border-radius: 10%;
+}
