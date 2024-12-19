@@ -40,7 +40,6 @@ function formatDate(isoString) {
 }
 
 function buildCard(info, currentUser) {
-  console.log("buildCard called");
   const row = document.querySelector("#postRow");
 
   let col = document.createElement("div");
@@ -54,6 +53,17 @@ function buildCard(info, currentUser) {
   let cardBody = document.createElement("div");
   cardBody.className = "card-body";
   card.append(cardBody);
+
+  const gravatarHash = md5(info.username.trim().toLowerCase());
+  const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?d=identicon`;
+
+  let avatar = document.createElement("img");
+  avatar.src = gravatarUrl;
+  avatar.alt = `${info.username}'s avatar`;
+  avatar.className = "rounded-circle me-3";
+  avatar.style.width = "40px";
+  avatar.style.height = "40px";
+  cardBody.append(avatar);
 
   let h5 = document.createElement("h5");
   h5.className = "card-title";

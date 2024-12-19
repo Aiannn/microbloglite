@@ -33,6 +33,12 @@
       // If the user is NOT logged in, redirect back to the landing page (index.html)
       if (isLoggedIn() === false) window.location.replace("/");
     </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"
+      integrity="sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr/gZlbkHkL6vTthxH"
+      crossorigin="anonymous"
+    ></script>
+    <script src="posts.js"></script>
   </head>
   <body>
     <header>
@@ -75,7 +81,7 @@
                 <a class="btn btn-primary" id="new-post" href="#" role="button">New Post</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/posts.html">Posts</a>
+                <a class="nav-link" href="posts.html">Posts</a>
               </li>
               <li class="nav-item dropdown">
                 <a
